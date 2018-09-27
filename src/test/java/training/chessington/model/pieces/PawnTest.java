@@ -152,7 +152,7 @@ public class PawnTest {
     }
 
     @Test
-    public void whitePawnsCannotMoveAtTopOfBoard() {
+    public void whitePawnsCannotMoveAtTopOfBoard() { //DONE RED 4
         // Arrange
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.WHITE);
@@ -167,7 +167,7 @@ public class PawnTest {
     }
 
     @Test
-    public void blackPawnsCannotMoveAtBottomOfBoard() {
+    public void blackPawnsCannotMoveAtBottomOfBoard() {//DONE RED 4
         // Arrange
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.BLACK);

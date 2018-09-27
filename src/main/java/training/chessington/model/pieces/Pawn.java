@@ -19,6 +19,7 @@ public class Pawn extends AbstractPiece {
     	if(get_move_permission(from, board)) {
         	allowed_moves.add(get_move_one(from));
         	allowed_moves.add(get_move_two(from));
+        	allowed_moves.addAll(get_attack_move(from, board));
     	}
         return allowed_moves;
     }
@@ -89,10 +90,41 @@ public class Pawn extends AbstractPiece {
     	}
     }
     
-//    private boolean get_attack_permission(Coordinates from, Board board){
-//    	
-//    	return true;
-//    }
+    private ArrayList<Move> get_attack_move(Coordinates from, Board board){
+    	Coordinates left;
+    	Coordinates right;
+    	ArrayList<Move> outMoves = new ArrayList<Move>();
+    	
+    	if(colour.equals(PlayerColour.WHITE)) {
+    		left = new Coordinates(from.getRow()-1, from.getCol()-1);
+    		right = new Coordinates(from.getRow()-1, from.getCol()+1);
+    		if(board.get(left)!=null) { //IF NOT AT THE EDGE
+    			if(board.get(left).getColour()== PlayerColour.BLACK) { //IF PIECE NOT THE SAME COLOUR
+        			outMoves.add(new Move(from, left)); //THEN ATTACK DIAGONALLY TO LEFT
+    			}
+    		}
+    		if(board.get(right)!=null) {//IF NOT AT THE EDGE
+    			if(board.get(right).getColour()== PlayerColour.BLACK) {
+        			outMoves.add(new Move(from, right));//THEN ATTACK DIAGONALLY TO RIGHT
+    			}
+    		}
+    	}
+    	if(colour.equals(PlayerColour.BLACK)) {
+    		left = new Coordinates(from.getRow()+1, from.getCol()-1);
+    		right = new Coordinates(from.getRow()+1, from.getCol()+1);
+    		if(board.get(left)!=null) { //IF NOT AT THE EDGE
+    			if(board.get(left).getColour() == PlayerColour.WHITE) {//IF PIECE NOT THE SAME COLOUR
+        			outMoves.add(new Move(from, left));//THEN ATTACK DIAGONALLY TO RIGHT
+    			}
+    		}
+    		if(board.get(right)!=null) { //IF NOT AT THE EDGE
+    			if(board.get(right).getColour() == PlayerColour.WHITE) {//IF PIECE NOT THE SAME COLOUR
+        			outMoves.add(new Move(from, right));//THEN ATTACK DIAGONALLY TO RIGHT
+    			}
+    		}
+    	}
+    return outMoves;
+    }
     
     
 }
