@@ -187,7 +187,7 @@ public class PawnTest {
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.WHITE);
         Piece enemyPiece = new Rook(PlayerColour.BLACK);
-        Coordinates pawnCoords = new Coordinates(4, 4);
+        Coordinates pawnCoords = new Coordinates(1, 4);
         board.placePiece(pawnCoords, pawn);
 
         Coordinates enemyCoords = pawnCoords.plus(-1, 1);
