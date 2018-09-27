@@ -16,8 +16,10 @@ public class Pawn extends AbstractPiece {
     @Override
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
     	ArrayList<Move> allowed_moves = new ArrayList<Move>();
-    	allowed_moves.add(get_move_one(from));
-    	allowed_moves.add(get_move_two(from));
+    	if(get_move_permission(from, board)) {
+        	allowed_moves.add(get_move_one(from));
+        	allowed_moves.add(get_move_two(from));
+    	}
         return allowed_moves;
     }
     
@@ -50,18 +52,45 @@ public class Pawn extends AbstractPiece {
     	return pawn_move;
     }
     
-//    private boolean get_move_permission(Coordinates from, Board board){
-//    	Move pawn_move;
-//    	Coordinates to;
-//    	 
+    private boolean get_move_permission(Coordinates from, Board board){
+    	Coordinates to;
+    	//White Piece
+    	if(colour.equals(PlayerColour.WHITE)) {
+        	to = new Coordinates(from.getRow()-1, from.getCol());
+        	if(from.getRow()>0) { //If not at the board edge
+	        	if(board.get(to)==null ) { // If not blocked by another piece
+	        		return true;
+	        	}
+	        	else {
+	        		return false;
+	        	}
+        	}
+        	else {
+        		return false;
+        	}
+    	}
+    	//Black Piece
+    	if(colour.equals(PlayerColour.BLACK)) {
+    		to = new Coordinates(from.getRow()+1, from.getCol());
+    		if(from.getRow()<7){ //If not at the board edge
+	        	if(board.get(to)==null) {// If not blocked by another piece
+	        		return true;
+	        	}
+	        	else {
+	        		return false;
+	        	}
+    		}
+    		else {
+    			return false;
+    		}
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    
+//    private boolean get_attack_permission(Coordinates from, Board board){
 //    	
-//    	if(colour.equals(PlayerColour.WHITE) && from.getRow()==6) {
-//    		to = new Coordinates(from.getRow()-2, from.getCol());
-//    	}
-//
-//    	else {
-//    		return false;
-//    	}
 //    	return true;
 //    }
     

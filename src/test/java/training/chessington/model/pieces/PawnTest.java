@@ -108,7 +108,7 @@ public class PawnTest {
     }
 
     @Test
-    public void pawnsCannotMoveIfPieceInFront() {
+    public void pawnsCannotMoveIfPieceInFront() { //DONE RED 3
         // Arrange
         Board board = Board.empty();
 
@@ -130,7 +130,7 @@ public class PawnTest {
     }
 
     @Test
-    public void pawnsCannotMoveTwoSquaresIfPieceTwoInFront() {
+    public void pawnsCannotMoveTwoSquaresIfPieceTwoInFront() {//DONE RED 3
         // Arrange
         Board board = Board.empty();
 
