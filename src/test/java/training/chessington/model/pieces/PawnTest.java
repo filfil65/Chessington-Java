@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PawnTest {
     @Test
-    public void whitePawnCanMoveUpOneSquare() {
+    public void whitePawnCanMoveUpOneSquare() { // DONE Red 1
         // Arrange
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.WHITE);
@@ -27,7 +27,7 @@ public class PawnTest {
     }
 
     @Test
-    public void blackPawnCanMoveDownOneSquare() {
+    public void blackPawnCanMoveDownOneSquare() {// DONE  Red 1
         // Arrange
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.BLACK);
@@ -42,7 +42,7 @@ public class PawnTest {
     }
 
     @Test
-    public void whitePawnCanMoveUpTwoSquaresIfNotMoved() {
+    public void whitePawnCanMoveUpTwoSquaresIfNotMoved() { // DONE Red 2
         // Arrange
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.WHITE);
@@ -57,7 +57,7 @@ public class PawnTest {
     }
 
     @Test
-    public void blackPawnCanMoveDownTwoSquaresIfNotMoved() {
+    public void blackPawnCanMoveDownTwoSquaresIfNotMoved() { // DONE  Red 2
         // Arrange
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.BLACK);
@@ -72,7 +72,7 @@ public class PawnTest {
     }
 
     @Test
-    public void whitePawnCannotMoveUpTwoSquaresIfAlreadyMoved() {
+    public void whitePawnCannotMoveUpTwoSquaresIfAlreadyMoved() { // DONE  Red 2
         // Arrange
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.WHITE);
@@ -90,7 +90,7 @@ public class PawnTest {
     }
 
     @Test
-    public void blackPawnCannotMoveDownTwoSquaresIfAlreadyMoved() {
+    public void blackPawnCannotMoveDownTwoSquaresIfAlreadyMoved() { // DONE  Red 2
         // Arrange
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.BLACK);
